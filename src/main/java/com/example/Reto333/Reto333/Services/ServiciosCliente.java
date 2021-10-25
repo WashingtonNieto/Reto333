@@ -40,7 +40,7 @@ public class ServiciosCliente {
     public Cliente update(Cliente client){
         if(client.getIdClient()!=null){
             Optional<Cliente> e= metodosCrud.getCliente(client.getIdClient());
-            if(!e.isPresent()){
+            if(e.isEmpty()){
                 if(client.getName()!=null){
                     e.get().setName(client.getName());
                 }

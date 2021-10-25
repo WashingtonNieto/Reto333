@@ -25,7 +25,7 @@ public class ServiciosCategoria {
     }
 
     public Categoria save(Categoria category) {
-        if (category.getId()== null) {
+        if (category.getId()==null) {
             return metodosCrud.save(category);
         } else {
             Optional<Categoria> e = metodosCrud.getCategoria(category.getId());
@@ -40,7 +40,7 @@ public class ServiciosCategoria {
     public Categoria update(Categoria category){
         if(category.getId()!=null){
             Optional<Categoria>g=metodosCrud.getCategoria(category.getId());
-            if(!g.isPresent()){
+            if(!g.isEmpty()){
                 if(category.getDescription()!=null){
                     g.get().setDescription(category.getDescription());
                 }
@@ -52,11 +52,23 @@ public class ServiciosCategoria {
         }
         return category;
     }
+    /*
+    //forma 1
+
     public boolean deleteCategory(int categoriaId){
         Boolean d=getCategoria(categoriaId).map(category -> {
             metodosCrud.delete(category);
             return true;
         }).orElse(false);
         return d;
+    }*/
+    //Forma 2
+    public boolean deleteCategory(int categoriaId){
+        Optional<Categoria> g=getCategoria(categoriaId);
+        if(!g.isEmpty()){
+            metodosCrud.delete(g.get());
+            return true;
+        }
+        return false;
     }
 }

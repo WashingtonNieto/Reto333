@@ -29,7 +29,7 @@ public class ServiciosMensaje {
             return metodosCrud.save(message);
         }else{
             Optional<Mensaje> e= metodosCrud.getMessage(message.getIdMessage());
-            if(e.isEmpty()){
+            if(!e.isEmpty()){
                 return metodosCrud.save(message);
             }else{
                 return message;

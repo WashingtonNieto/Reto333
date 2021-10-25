@@ -31,6 +31,7 @@ public class ControladorCategoria {
     public Categoria save(@RequestBody Categoria categoria) {
         return servicio.save(categoria);
     }
+
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Categoria update(@RequestBody Categoria categoria) {
