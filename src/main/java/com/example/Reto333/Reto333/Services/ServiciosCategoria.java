@@ -37,6 +37,7 @@ public class ServiciosCategoria {
         }
     }
 
+    // para verificar el git
     //error por falta de ! en !g.isEmpty
     public Categoria update(Categoria category){
         if(category.getId()!=null){
