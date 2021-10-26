@@ -37,6 +37,7 @@ public class ServiciosCategoria {
         }
     }
 
+    //error por falta de ! en !g.isEmpty
     public Categoria update(Categoria category){
         if(category.getId()!=null){
             Optional<Categoria>g=metodosCrud.getCategoria(category.getId());
