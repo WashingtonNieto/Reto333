@@ -1,15 +1,22 @@
 package com.example.Reto333.Reto333.Interface;
 
 import com.example.Reto333.Reto333.Entity.Reservaciones;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Date;
 import java.util.List;
 
-public interface InterfaceReservaciones extends CrudRepository <Reservaciones,Integer>{
+public interface InterfaceReservaciones extends CrudRepository <Reservaciones,Integer> {
+
+
+    //JPQL
+    @Query ("select c.client, COUNT(c.client) from Reservaciones as c group by c.client order by COUNT(c.client) desc")
+    public LIst<Object[]> countTotalReservaciones();
 
     public List<Reservaciones> findAllByStarDateAfterAndStartDateBefore(Date dateOne, Date dateTwo);
 
-    public List<Reservaciones> findAllByD
+    public List<Reservaciones> findAllByStatus(String status);
+
 
 }

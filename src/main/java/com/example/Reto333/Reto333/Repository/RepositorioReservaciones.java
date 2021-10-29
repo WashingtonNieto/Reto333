@@ -5,6 +5,7 @@ import com.example.Reto333.Reto333.Interface.InterfaceReservaciones;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,12 +22,22 @@ public class RepositorioReservaciones {
     public Optional<Reservaciones> getReservation(int id){
         return crud4.findById(id);
     }
+
     public Reservaciones save(Reservaciones reservation){
         return crud4.save(reservation);
     }
+
     public void delete(Reservaciones reservation){
         crud4.delete(reservation);
     }
 
+
+    public List<Reservaciones> getReservacionesPeriod(Date dateOne, Date dateTwo){
+        return getReservacionesPeriod(dateOne,dateTwo);
+    }
+
+    public List<Reservaciones> getReservacionesByStatus(String  status){
+        return getReservacionesByStatus(status);
+    }
 
 }
