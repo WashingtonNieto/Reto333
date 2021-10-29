@@ -17,6 +17,12 @@ public class ControladorCliente {
     @Autowired
     private ServiciosCliente servicio;
 
+    @GetMapping("/age/{age}")
+    public List<Cliente> getByAge(@PathVariable Integer age){
+        return servicio.findByAge(age);
+    }
+
+
     @GetMapping("/all")
     public List<Cliente> getClients(){
         return servicio.getAll();

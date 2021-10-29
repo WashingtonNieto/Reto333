@@ -9,11 +9,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-
 public class RepositorioCliente {
 
     @Autowired
     private InterfaceCliente crud1;
+
+    public List<Cliente> findByAge(Integer age){
+        return crud1.findByAge(age);
+    }
 
     public List<Cliente> getAll(){
         return (List<Cliente>) crud1.findAll();
@@ -28,5 +31,7 @@ public class RepositorioCliente {
     public void delete(Cliente cliente){
         crud1.delete(cliente);
     }
+
+
 
 }

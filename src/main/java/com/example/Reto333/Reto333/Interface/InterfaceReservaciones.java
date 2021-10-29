@@ -10,13 +10,15 @@ import java.util.List;
 public interface InterfaceReservaciones extends CrudRepository <Reservaciones,Integer> {
 
 
+
+
     //JPQL
     @Query ("select c.client, COUNT(c.client) from Reservaciones as c group by c.client order by COUNT(c.client) desc")
-    public LIst<Object[]> countTotalReservaciones();
+    public List<Object[]> countTotalReservaciones();
 
-    public List<Reservaciones> findAllByStarDateAfterAndStartDateBefore(Date dateOne, Date dateTwo);
+    List<Reservaciones> findAllByStartDateAndDevolutionDate(Date dateOne, Date dateTwo);
 
-    public List<Reservaciones> findAllByStatus(String status);
+    List<Reservaciones> findAllByStatus(String status);
 
 
 }

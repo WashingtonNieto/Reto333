@@ -31,13 +31,14 @@ public class RepositorioReservaciones {
         crud4.delete(reservation);
     }
 
+   // public List<Reservaciones> getReservacionesByStatus(String  status){
+   //     return InterfaceReservaciones.findAllByStatus(status);
+   // }
 
-    public List<Reservaciones> getReservacionesPeriod(Date dateOne, Date dateTwo){
-        return getReservacionesPeriod(dateOne,dateTwo);
-    }
+    //public List<Reservaciones> getReservacionesPeriod(Date dateOne, Date dateTwo){
+    //    return InterfaceReservaciones.findAllByStartDateAndDevolutionDate(dateOne,dateTwo);
+    //}
 
-    public List<Reservaciones> getReservacionesByStatus(String  status){
-        return getReservacionesByStatus(status);
-    }
+
 
 }

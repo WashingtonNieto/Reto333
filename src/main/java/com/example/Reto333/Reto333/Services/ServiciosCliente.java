@@ -2,6 +2,7 @@ package com.example.Reto333.Reto333.Services;
 
 
 import com.example.Reto333.Reto333.Entity.Cliente;
+import com.example.Reto333.Reto333.Interface.InterfaceCliente;
 import com.example.Reto333.Reto333.Repository.RepositorioCliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,10 @@ public class ServiciosCliente {
 
     @Autowired
     private RepositorioCliente metodosCrud;
+
+    public List<Cliente> findByAge(Integer age){
+        return metodosCrud.findByAge(age);
+    }
 
     public List<Cliente> getAll(){
         return metodosCrud.getAll();
