@@ -5,6 +5,7 @@ import com.example.Reto333.Reto333.Repository.RepositorioReservaciones;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +19,11 @@ public class ServiciosReservaciones {
     public List<Reservaciones> getAll(){
         return metodosCrud.getAll();
     }
+
+    public List<Reservaciones> findAllByStartDateAndDevolutionDate(Date startDate, Date devolutionDate){
+        return metodosCrud.findAllByStartDateAndDevolutionDate(startDate, devolutionDate);
+    }
+
 
     public Optional<Reservaciones> getReservation(int reservationId) {
         return metodosCrud.getReservation(reservationId);

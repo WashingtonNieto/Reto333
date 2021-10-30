@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +21,12 @@ public class ControladorReservaciones {
     public List<Reservaciones> getReservations(){
         return servicio.getAll();
     }
+
+    @GetMapping("/report-dates/{startDate}/{devolutionDate}")
+    public List<Reservaciones> getByStartDateAndDevolutionDate(@PathVariable Date startDate, Date devolutionDate ){
+        return servicio.findAllByStartDateAndDevolutionDate(startDate,devolutionDate);
+    }
+
 
     @GetMapping("/{id}")
     public Optional<Reservaciones> getReservation(@PathVariable("id") int reservationId) {
