@@ -31,8 +31,12 @@ public class RepositorioReservaciones {
         crud4.delete(reservation);
     }
 
-    public List<Reservaciones> findAllByStartDateAndDevolutionDate(Date startDate, Date devolutionDate){
-        return crud4.findAllByStartDateAndDevolutionDate(startDate, devolutionDate);
+    public List<Reservaciones> getReservationPeriod(Date a, Date b){
+        return crud4.findAllByStartDateAfterAndStartDateBefore(a,b);
+    }
+
+    public List<Reservaciones> buscarCantidadStatus(String status){
+        return crud4.buscarCantidadStatus();
     }
 
 
