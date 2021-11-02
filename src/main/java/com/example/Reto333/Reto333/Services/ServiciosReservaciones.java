@@ -4,7 +4,11 @@ import com.example.Reto333.Reto333.Entity.Reservaciones;
 import com.example.Reto333.Reto333.Repository.RepositorioReservaciones;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -20,11 +24,26 @@ public class ServiciosReservaciones {
         return metodosCrud.getAll();
     }
 
-    public List<Reservaciones> findAllByStartDateAndDevolutionDate(Date startDate, Date devolutionDate){
-        return metodosCrud.findAllByStartDateAndDevolutionDate(startDate, devolutionDate);
+    public List<Reservaciones> getReservationsPeriod(String dateA, String dateB){
+        SimpleDateFormat parser=new SimpleDateFormat("yyyy-MM-dd");
+        Date a=new Date();
+        Date b=new Date();
+        try{
+            a=parser.parse(dateA);
+            b=parser.parse(dateB);
+        }catch(ParseException e){
+            e.printStackTrace();
+        }
+        if(a.before(b)){
+            return metodosCrud.getReservationPeriod(a,b);
+        }else{
+            return new ArrayList<>();
+        }
     }
 
-
+    public List<Reservaciones> buscarCantidadStatus(String status){
+        return metodosCrud.buscarCantidadStatus(status);
+    }
     public Optional<Reservaciones> getReservation(int reservationId) {
         return metodosCrud.getReservation(reservationId);
     }

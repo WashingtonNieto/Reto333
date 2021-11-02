@@ -22,11 +22,18 @@ public class ControladorReservaciones {
         return servicio.getAll();
     }
 
-    @GetMapping("/report-dates/{startDate}/{devolutionDate}")
-    public List<Reservaciones> getByStartDateAndDevolutionDate(@PathVariable Date startDate, Date devolutionDate ){
-        return servicio.findAllByStartDateAndDevolutionDate(startDate,devolutionDate);
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservaciones> getReservationReportDates(
+            @PathVariable("dateOne") String dateOne, @PathVariable("dateTwo") String dateTwo ){
+        return servicio.getReservationsPeriod(dateOne,dateTwo);
     }
 
+
+
+    @GetMapping("/report-status")
+    public List<Reservaciones> getByCountStatus(@RequestBody String status){
+        return servicio.buscarCantidadStatus(status);
+    }
 
     @GetMapping("/{id}")
     public Optional<Reservaciones> getReservation(@PathVariable("id") int reservationId) {
