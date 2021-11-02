@@ -1,16 +1,17 @@
 package com.example.Reto333.Reto333.Repository;
 
 import com.example.Reto333.Reto333.Entity.Reservaciones;
+import com.example.Reto333.Reto333.Entity.custom.CountReservaciones;
 import com.example.Reto333.Reto333.Interface.InterfaceReservaciones;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-
 public class RepositorioReservaciones {
 
     @Autowired
@@ -35,9 +36,20 @@ public class RepositorioReservaciones {
         return crud4.findAllByStartDateAfterAndStartDateBefore(a,b);
     }
 
-    public List<Reservaciones> buscarCantidadStatus(String status){
-        return crud4.buscarCantidadStatus();
+
+    public List<Reservaciones> getReservacionesByStatus(String status){
+        return crud4.findAllByStatus(status);
     }
+
+    public List<CountReservaciones> getTopReservaciones(){
+        List<CountReservaciones> res=new ArrayList<>();
+
+        List<Object[]> report=crud4.countTotalByStatus();
+
+
+        return res;
+    }
+
 
 
 }
