@@ -15,12 +15,4 @@ public interface InterfaceReservaciones extends CrudRepository <Reservaciones,In
 //    FROM Reservation
 //    GROUP BY Reservation.status;
 
-
-    @Query("SELECT r.status, COUNT(r.status) FROM Reservations AS r GROUP BY r.status ORDER BY count(r.status) desc")
-    public List<Object[]> countTotalByStatus();
-
-    public List<Reservaciones> findAllByStatus(String status);
-
-
-
 }

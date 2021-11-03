@@ -36,12 +36,4 @@ public class RepositorioReservaciones {
         return crud4.findAllByStartDateAfterAndStartDateBefore(a,b);
     }
 
-    public List<Reservaciones> getReservacionesByStatus(String status){
-        return crud4.findAllByStatus(status);
-    }
-
-
-
-
-
 }
