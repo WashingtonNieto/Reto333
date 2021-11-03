@@ -19,38 +19,38 @@ public class RepositorioReservaciones {
     @Autowired
     private InterfaceReservaciones InterfaceReservaciones;
 
-    public List<Reservaciones> getAll(){
+    public List<Reservaciones> getAll() {
         return (List<Reservaciones>) InterfaceReservaciones.findAll();
     }
-    public Optional<Reservaciones> getReservation(int id){
+
+    public Optional<Reservaciones> getReservation(int id) {
         return InterfaceReservaciones.findById(id);
     }
 
-    public Reservaciones save(Reservaciones reservation){
+    public Reservaciones save(Reservaciones reservation) {
         return InterfaceReservaciones.save(reservation);
     }
 
-    public void delete(Reservaciones reservation){
+    public void delete(Reservaciones reservation) {
         InterfaceReservaciones.delete(reservation);
     }
 
-    public List<Reservaciones> getReservationPeriod(Date a, Date b){
-        return InterfaceReservaciones.findAllByStartDateAfterAndStartDateBefore(a,b);
+    public List<Reservaciones> getReservationPeriod(Date a, Date b) {
+        return InterfaceReservaciones.findAllByStartDateAfterAndStartDateBefore(a, b);
     }
 
-    public List<Reservaciones> getReservationByStatus(String status){
+    public List<Reservaciones> getReservationByStatus(String status) {
         return InterfaceReservaciones.findAllByStatus(status);
     }
 
-    /*
-    public List<countClient> getTopClients(){
-        List<countClient> res=new ArrayList<>();
+    public List<countClient> getTopClients() {
+        List<countClient> res = new ArrayList<>();
 
-        List<Object[]> report=InterfaceReservaciones.countTotalClientByReservation();
-        for(int i=0;i<report.size();i++){
-            res.add(new countClient((Integer) report.get(i)[1], (Cliente) report.get(i)[0]));
+        List<Object[]> report = InterfaceReservaciones.countTotalClientByReservation();
+        for (int i = 0; i < report.size(); i++) {
+            res.add(new countClient((Long) report.get(i)[1], (Cliente) report.get(i)[0]));
         }
         return res;
     }
-    */
+
 }

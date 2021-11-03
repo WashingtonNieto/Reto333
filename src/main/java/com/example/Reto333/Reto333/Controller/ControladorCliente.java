@@ -15,39 +15,39 @@ import java.util.Optional;
 
 public class ControladorCliente {
     @Autowired
-    private ServiciosCliente servicio;
+    private ServiciosCliente ServiciosCliente;
 
     @GetMapping("/age/{age}")
     public List<Cliente> getByAge(@PathVariable Integer age){
-        return servicio.findByAge(age);
+        return ServiciosCliente.findByAge(age);
     }
 
 
     @GetMapping("/all")
     public List<Cliente> getClients(){
-        return servicio.getAll();
+        return ServiciosCliente.getAll();
     }
 
     @GetMapping("/{id}")
     public Optional<Cliente> getClient(@PathVariable("id") int clientId) {
-        return servicio.getClient(clientId);
+        return ServiciosCliente.getClient(clientId);
     }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Cliente save(@RequestBody Cliente client) {
-        return servicio.save(client);
+        return ServiciosCliente.save(client);
     }
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Cliente update(@RequestBody Cliente client) {
-        return servicio.update(client);
+        return ServiciosCliente.update(client);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int clientId) {
-        return servicio.deleteClient(clientId);
+        return ServiciosCliente.deleteClient(clientId);
     }
 
 }

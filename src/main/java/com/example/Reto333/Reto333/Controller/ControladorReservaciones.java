@@ -36,11 +36,10 @@ public class ControladorReservaciones {
         return serviciosReservaciones.getStatusReservation();
     }
 
-    //@GetMapping("/report-clients")
-    //public List<countClient> getCountClient(){
-    //    return serviciosReservaciones.getTopClients();
-    //}
-    // otra modificacion, para actualizar
+    @GetMapping("/report-clients")
+    public List<countClient> getCountClient(){
+        return serviciosReservaciones.getStatusReservation();
+    }
 
     @GetMapping("/{id}")
     public Optional<Reservaciones> getReservation(@PathVariable("id") int reservationId) {

@@ -4,19 +4,19 @@ package com.example.Reto333.Reto333.Entity.custom;
 import com.example.Reto333.Reto333.Entity.Cliente;
 
 public class countClient {
-    private Integer total;
+    private Long total;
     private Cliente client;
 
-    public countClient(Integer total, Cliente client) {
+    public countClient(Long total, Cliente client) {
         this.total = total;
         this.client = client;
     }
 
-    public Integer getTotal() {
+    public Long getTotal() {
         return total;
     }
 
-    public void setTotal(Integer total) {
+    public void setTotal(Long total) {
         this.total = total;
     }
 
