@@ -91,8 +91,5 @@ public class ServiciosReservaciones {
         return aBoolean;
     }
 
-    public List<CountReservaciones> getTopReservaciones(){
-        return metodosCrud.getTopReservaciones();
-    }
 
 }
