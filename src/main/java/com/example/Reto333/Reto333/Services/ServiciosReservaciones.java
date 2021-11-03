@@ -1,6 +1,7 @@
 package com.example.Reto333.Reto333.Services;
 
 import com.example.Reto333.Reto333.Entity.Reservaciones;
+import com.example.Reto333.Reto333.Entity.custom.CountReservaciones;
 import com.example.Reto333.Reto333.Repository.RepositorioReservaciones;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,9 +42,6 @@ public class ServiciosReservaciones {
         }
     }
 
-    public List<Reservaciones> buscarCantidadStatus(String status){
-        return metodosCrud.buscarCantidadStatus(status);
-    }
     public Optional<Reservaciones> getReservation(int reservationId) {
         return metodosCrud.getReservation(reservationId);
     }
@@ -91,6 +89,10 @@ public class ServiciosReservaciones {
             return true;
         }).orElse(false);
         return aBoolean;
+    }
+
+    public List<CountReservaciones> getTopReservaciones(){
+        return metodosCrud.getTopReservaciones();
     }
 
 }

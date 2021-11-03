@@ -29,12 +29,6 @@ public class ControladorReservaciones {
     }
 
 
-
-    @GetMapping("/report-status")
-    public List<Reservaciones> getByCountStatus(@RequestBody String status){
-        return servicio.buscarCantidadStatus(status);
-    }
-
     @GetMapping("/{id}")
     public Optional<Reservaciones> getReservation(@PathVariable("id") int reservationId) {
         return servicio.getReservation(reservationId);

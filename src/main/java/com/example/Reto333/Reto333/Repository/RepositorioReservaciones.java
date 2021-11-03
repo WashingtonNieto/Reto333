@@ -36,19 +36,11 @@ public class RepositorioReservaciones {
         return crud4.findAllByStartDateAfterAndStartDateBefore(a,b);
     }
 
-
     public List<Reservaciones> getReservacionesByStatus(String status){
         return crud4.findAllByStatus(status);
     }
 
-    public List<CountReservaciones> getTopReservaciones(){
-        List<CountReservaciones> res=new ArrayList<>();
 
-        List<Object[]> report=crud4.countTotalByStatus();
-
-
-        return res;
-    }
 
 
 
