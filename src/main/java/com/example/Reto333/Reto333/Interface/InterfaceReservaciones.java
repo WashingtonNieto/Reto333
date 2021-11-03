@@ -11,13 +11,9 @@ public interface InterfaceReservaciones extends CrudRepository <Reservaciones,In
 
 
     public List<Reservaciones> findAllByStartDateAfterAndStartDateBefore(Date dateOne, Date dateTwo);
-//    SELECT Reservation.status, Count(*) AS Expr1
-//    FROM Reservation
-//    GROUP BY Reservation.status;
 
-
-    @Query("SELECT r.status, COUNT(r.status) FROM Reservations AS r GROUP BY r.status ORDER BY count(r.status) desc")
-    public List<Object[]> countTotalByStatus();
+    //@Query("SELECT c.client, COUNT(c.client) FROM Reservation AS c GROUP BY c.client ORDER BY COUNT(c.client) desc")
+    //public List<Object[]> countTotalClientByReservation();
 
     public List<Reservaciones> findAllByStatus(String status);
 

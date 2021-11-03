@@ -1,7 +1,9 @@
 package com.example.Reto333.Reto333.Repository;
 
+import ch.qos.logback.core.net.server.Client;
+import com.example.Reto333.Reto333.Entity.Cliente;
 import com.example.Reto333.Reto333.Entity.Reservaciones;
-import com.example.Reto333.Reto333.Entity.custom.CountReservaciones;
+import com.example.Reto333.Reto333.Entity.custom.countClient;
 import com.example.Reto333.Reto333.Interface.InterfaceReservaciones;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,41 +17,40 @@ import java.util.Optional;
 public class RepositorioReservaciones {
 
     @Autowired
-    private InterfaceReservaciones crud4;
+    private InterfaceReservaciones InterfaceReservaciones;
 
     public List<Reservaciones> getAll(){
-        return (List<Reservaciones>) crud4.findAll();
+        return (List<Reservaciones>) InterfaceReservaciones.findAll();
     }
     public Optional<Reservaciones> getReservation(int id){
-        return crud4.findById(id);
+        return InterfaceReservaciones.findById(id);
     }
 
     public Reservaciones save(Reservaciones reservation){
-        return crud4.save(reservation);
+        return InterfaceReservaciones.save(reservation);
     }
 
     public void delete(Reservaciones reservation){
-        crud4.delete(reservation);
+        InterfaceReservaciones.delete(reservation);
     }
 
     public List<Reservaciones> getReservationPeriod(Date a, Date b){
-        return crud4.findAllByStartDateAfterAndStartDateBefore(a,b);
+        return InterfaceReservaciones.findAllByStartDateAfterAndStartDateBefore(a,b);
     }
 
-
-    public List<Reservaciones> getReservacionesByStatus(String status){
-        return crud4.findAllByStatus(status);
+    public List<Reservaciones> getReservationByStatus(String status){
+        return InterfaceReservaciones.findAllByStatus(status);
     }
 
-    public List<CountReservaciones> getTopReservaciones(){
-        List<CountReservaciones> res=new ArrayList<>();
+    /*
+    public List<countClient> getTopClients(){
+        List<countClient> res=new ArrayList<>();
 
-        List<Object[]> report=crud4.countTotalByStatus();
-
-
+        List<Object[]> report=InterfaceReservaciones.countTotalClientByReservation();
+        for(int i=0;i<report.size();i++){
+            res.add(new countClient((Integer) report.get(i)[1], (Cliente) report.get(i)[0]));
+        }
         return res;
     }
-
-
-
+    */
 }
