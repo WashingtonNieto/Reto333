@@ -16,7 +16,7 @@ public interface InterfaceReservaciones extends CrudRepository <Reservaciones,In
     //public List<Object[]> countTotalClientByReservation();
 
     public List<Reservaciones> findAllByStatus(String status);
-
+    // otra modificacion, para actualizar
 
 
 }
