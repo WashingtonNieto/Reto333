@@ -1,8 +1,8 @@
 package com.example.Reto333.Reto333.Services;
 
 import com.example.Reto333.Reto333.Entity.Reservaciones;
-import com.example.Reto333.Reto333.Entity.custom.countClient;
-import com.example.Reto333.Reto333.Entity.custom.descriptionAmount;
+import com.example.Reto333.Reto333.Entity.custom.CountClient;
+import com.example.Reto333.Reto333.Entity.custom.DescriptionAmount;
 import com.example.Reto333.Reto333.Repository.RepositorioReservaciones;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -76,15 +76,11 @@ public class ServiciosReservaciones {
     }
 
 
-//    public List<countClient> getTopClients(){
-//        return RepositorioReservaciones.getTopClients();
-//    }
-
-    public descriptionAmount getStatusReservation(){
+    public DescriptionAmount getStatusReport(){
         List<Reservaciones> completed=RepositorioReservaciones.getReservationByStatus("completed");
         List<Reservaciones> cancelled=RepositorioReservaciones.getReservationByStatus("cancelled");
 
-        descriptionAmount descAmt= new descriptionAmount(completed.size(), cancelled.size());
+        DescriptionAmount descAmt= new DescriptionAmount(completed.size(), cancelled.size());
         return descAmt;
     }
 
@@ -105,6 +101,7 @@ public class ServiciosReservaciones {
             return new ArrayList<>();
         }
     }
+    public List<CountClient> getTopClient(){ return RepositorioReservaciones.getTopClients(); }
 
 
 }

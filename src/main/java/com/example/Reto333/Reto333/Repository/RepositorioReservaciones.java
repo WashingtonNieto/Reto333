@@ -1,9 +1,8 @@
 package com.example.Reto333.Reto333.Repository;
 
-import ch.qos.logback.core.net.server.Client;
 import com.example.Reto333.Reto333.Entity.Cliente;
 import com.example.Reto333.Reto333.Entity.Reservaciones;
-import com.example.Reto333.Reto333.Entity.custom.countClient;
+import com.example.Reto333.Reto333.Entity.custom.CountClient;
 import com.example.Reto333.Reto333.Interface.InterfaceReservaciones;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -43,12 +42,12 @@ public class RepositorioReservaciones {
         return InterfaceReservaciones.findAllByStatus(status);
     }
 
-    public List<countClient> getTopClients() {
-        List<countClient> res = new ArrayList<>();
+    public List<CountClient> getTopClients() {
+        List<CountClient> res = new ArrayList<>();
 
         List<Object[]> report = InterfaceReservaciones.countTotalClientByReservation();
         for (int i = 0; i < report.size(); i++) {
-            res.add(new countClient((Long) report.get(i)[1], (Cliente) report.get(i)[0]));
+            res.add(new CountClient((Long) report.get(i)[1], (Cliente) report.get(i)[0]));
         }
         return res;
     }
